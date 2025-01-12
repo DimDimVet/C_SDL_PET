@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="app">
+      <UniqueIdentifier>{87e49149-6230-4b3a-b5c4-35901c60da7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="execut">
+      <UniqueIdentifier>{a38bd118-a6db-46fe-bb24-d71192840a0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc">
+      <UniqueIdentifier>{23677318-c68f-41e4-9f7e-2cd035fd3b92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="res">
+      <UniqueIdentifier>{3292f5fb-a8d3-4fa5-a109-f98b746eb6eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sdl">
+      <UniqueIdentifier>{303e135d-3547-476b-a079-d87e437e4186}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="app\app.c">
+      <Filter>app</Filter>
+    </ClCompile>
+    <ClCompile Include="app\tst.c">
+      <Filter>app</Filter>
+    </ClCompile>
+    <ClCompile Include="sdl\SDLWIN.c">
+      <Filter>sdl</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="app\tst.h">
+      <Filter>app</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\app.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\SDLWIN.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

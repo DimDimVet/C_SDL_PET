@@ -1,0 +1,6 @@
+﻿  tst.c
+E:\ELECTRONIC\Project\C_SDL_PET\app\tst.c(74,10): warning C4047: =: "char" отличается по уровням косвенного обращения от "char [18]"
+  SDLWIN.c
+  Создание кода...
+E:\ELECTRONIC\Project\C_SDL_PET\sdl\SDLWIN.c(24,1): warning C4715: InitWin: значение возвращается не при всех путях выполнения
+  C_SDL_PET.vcxproj -> E:\ELECTRONIC\Project\C_SDL_PET\x64\Debug\C_SDL_PET.exe
