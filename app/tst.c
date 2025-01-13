@@ -4,6 +4,13 @@
 #include <stdbool.h>
 #include "tst.h"
 
+
+#define WIN_WIDTH 500
+#define WIN_HEIGHT 500
+
+#define path_GND_PNG "res/gnd.png"
+#define path_TNK_PNG "res/tnk.png"
+
 int tst()
 {
     char str[10];
@@ -16,7 +23,7 @@ int tst()
     //    SDL_WINDOWPOS_CENTERED,
     //    1000, 1000, 0);
     SDL_Window* win;
-    win=InitWin("GAMETEST",1000,1000);
+    win=InitWin("GAMETEST", WIN_WIDTH, WIN_HEIGHT);
 
     //// запускает программу, которая управляет
     //// ваше графическое оборудование и устанавливает флаги
@@ -28,72 +35,74 @@ int tst()
     rend = InitRender(win);
 
     // создает поверхность для загрузки изображения в основную память
-    SDL_Texture* texMap;
-    SDL_Texture* tex;
-    SDL_Texture* textTexture;
+   // SDL_Texture* texMap;
+    //SDL_Texture* tex;
+    //SDL_Texture* textTexture;
 
     // creates a surface to load an image into the main memory
-    SDL_Surface* surfaceMap;
-    SDL_Surface* surface;
+   // SDL_Surface* surfaceMap;
+    //SDL_Surface* surface;
     SDL_Surface* surfaceTxt;
 
     // пожалуйста, укажите путь для вашего изображения
-    surfaceMap = IMG_Load("res/gnd.png");
-    surface = IMG_Load("res/tnk.png");
+   // surfaceMap = IMG_Load(path_GND_PNG);
+    SDL_Texture* texMap = InitTexturePng(rend, path_GND_PNG);
+    SDL_Texture* tex = InitTexturePng(rend, path_TNK_PNG);
+
+    //surface = IMG_Load(path_TNK_PNG);
     // Загрузка шрифта
+    char* str1 = "PRIVED! по РУССКИ";
     TTF_Font* font = TTF_OpenFont("res/ofont.ru_Evolventa.ttf", 48);
     SDL_Color textColor = { 255, 255, 255, 255 }; // цвет
-
+    SDL_Texture* textTexture = InitText(rend, str1, font, textColor);
+    SDL_Texture* textTexture1 = InitText(rend, str1, font, textColor);;
     // загружает изображение в память нашего графического оборудования.
-    texMap = SDL_CreateTextureFromSurface(rend, surfaceMap);
-    tex = SDL_CreateTextureFromSurface(rend, surface);
+   // texMap = SDL_CreateTextureFromSurface(rend, surfaceMap);
+   // tex = SDL_CreateTextureFromSurface(rend, surface);
 
-    surfaceTxt = TTF_RenderText_Solid(font, "PRIVED! по РУССКИ", textColor);
-    textTexture = SDL_CreateTextureFromSurface(rend, surfaceTxt);
+    //surfaceTxt = TTF_RenderText_Solid(font, "PRIVED! по РУССКИ", textColor);
+    //textTexture = SDL_CreateTextureFromSurface(rend, surfaceTxt);
 
     // clears main-memory
-    SDL_FreeSurface(surfaceMap);
-    SDL_FreeSurface(surface);
+   // SDL_FreeSurface(surfaceMap);
+   // SDL_FreeSurface(surface);
     
 
     // let us control our image position
 
     // so that we can move it with our keyboard.
-    SDL_Rect destMap;
+   // SDL_Rect destMap;
     SDL_Rect dest;
-    SDL_Rect destTxt;
+    //SDL_Rect destTxt;
 
     // соединяет нашу текстуру с dest для управления позицией
 
-    SDL_QueryTexture(texMap, NULL, NULL, &destMap.w, &destMap.h);
+    //SDL_QueryTexture(texMap, NULL, NULL, &destMap.w, &destMap.h);
     SDL_QueryTexture(tex, NULL, NULL, &dest.w, &dest.h);
-    SDL_QueryTexture(textTexture, NULL, NULL, &destTxt.w, &destTxt.h);
-
+    //SDL_QueryTexture(textTexture, NULL, NULL, &destTxt.w, &destTxt.h);
 
     printf("w=%d h=%d\n", dest.w, dest.h);
-    *str = "PRIVED! по РУССКИ";
- 
 
     // отрегулируйте высоту и ширину нашего поля изображения.
-    destMap.w /= 1;
-    destMap.h /= 1;
+    //destMap.w /= 1;
+    //destMap.h /= 1;
 
     dest.w /= 2;
     dest.h /= 2;
 
-    destTxt.w /= 2;
-    destTxt.h /= 2;
+    /*destTxt.w /= 2;
+    destTxt.h /= 2;*/
 
     // устанавливает начальное положение x объекта
-    destMap.x = (1000 - destMap.w) / 2;
-    dest.x = (1000 - dest.w) / 2;
-    destTxt.x = (1000 - destTxt.w) / 2;
+    //destMap.x = (WIN_WIDTH - destMap.w) / 2;
+    dest.x = (WIN_WIDTH - dest.w) / 2;
+    //destTxt.x = (WIN_WIDTH - destTxt.w) / 2;
     
 
     // устанавливает начальное положение y объекта
-    destMap.y = (1000 - destMap.h) / 2;
-    dest.y = (1000 - dest.h) / 2;
-    destTxt.y = (1000 - destTxt.h) / 2;
+    //destMap.y = (WIN_HEIGHT - destMap.h) / 2;
+    dest.y = (WIN_HEIGHT - dest.h) / 2;
+    //destTxt.y = (WIN_HEIGHT - destTxt.h) / 2;
 
     double angle = 35; // Угол поворота
 
@@ -106,10 +115,18 @@ int tst()
 
     bool loop = false;
     int counLoop = 0;
-
+    
     // animation loop
     while (!close)
     {
+        // clears the screen
+        SDL_RenderClear(rend);
+        //SDL_RenderCopy(rend, texMap, NULL, &destMap);
+        RenderTexturePng(texMap, rend, WIN_WIDTH, WIN_HEIGHT);
+        SDL_RenderCopyEx(rend, tex, NULL, &dest, angle, NULL, SDL_FLIP_NONE);
+        RenderTextureText(textTexture, rend, WIN_WIDTH, WIN_HEIGHT);
+        //SDL_RenderCopy(rend, textTexture, NULL, &destTxt);
+
         SDL_Event event;
 
         counLoop++;
@@ -127,16 +144,20 @@ int tst()
                 dest.w = 52;
                 loop = !loop;
             }
-            printf("w=%d h=%d\n", dest.w, dest.h);
+            //printf("w=%d h=%d\n", destTxt.w, destTxt.h);
 
-            snprintf(str, sizeof str, "w=%d h=%d\n", dest.w, dest.h);
-
-            surfaceTxt = TTF_RenderText_Solid(font, str, textColor);
-            textTexture = SDL_CreateTextureFromSurface(rend, surfaceTxt);
-
+           //surfaceTxt = TTF_RenderText_Solid(font, str, textColor);
+            //textTexture = SDL_CreateTextureFromSurface(rend, surfaceTxt);
+            
             counLoop = 0;
         }
+        else
+        {
+            snprintf(str, sizeof str, "count =%d \n", counLoop);
+            printf("str=%s\n", str);
 
+            UpDateRenderTextureText(textTexture1, rend, str, font, textColor, WIN_WIDTH, WIN_HEIGHT+100);
+        }
 
         // Events management
         while (SDL_PollEvent(&event)) {
@@ -173,29 +194,30 @@ int tst()
         }
 
         // right boundary
-        if (dest.x + dest.w > 1000)
-            dest.x = 1000 - dest.w;
+        if (dest.x + dest.w > WIN_WIDTH)
+            dest.x = WIN_WIDTH - dest.w;
 
         // left boundary
         if (dest.x < 0)
             dest.x = 0;
 
         // bottom boundary
-        if (dest.y + dest.h > 1000)
-            dest.y = 1000 - dest.h;
+        if (dest.y + dest.h > WIN_HEIGHT)
+            dest.y = WIN_HEIGHT - dest.h;
 
         // upper boundary
         if (dest.y < 0)
             dest.y = 0;
 
-        // clears the screen
-        SDL_RenderClear(rend);
+        
         //
-        SDL_RenderCopy(rend, texMap, NULL, &destMap);
-        SDL_RenderCopyEx(rend, tex, NULL, &dest, angle, NULL, SDL_FLIP_NONE);
-        //SDL_RenderCopy(rend, tex, NULL, &dest);
-        SDL_RenderCopy(rend, textTexture, NULL, &destTxt);
 
+        /*SDL_RenderCopy(rend, texMap, NULL, &destMap);
+        SDL_RenderCopyEx(rend, tex, NULL, &dest, angle, NULL, SDL_FLIP_NONE);*/
+
+        //SDL_RenderCopy(rend, tex, NULL, &dest);
+        //SDL_RenderCopy(rend, textTexture, NULL, &destTxt);
+        
         // triggers the double buffers
         // for multiple rendering
         SDL_RenderPresent(rend);
@@ -223,7 +245,6 @@ int tst()
     IMG_Quit();
 
     return 0;
-
 
 
 

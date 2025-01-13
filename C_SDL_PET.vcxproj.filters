@@ -16,6 +16,9 @@
     <Filter Include="sdl">
       <UniqueIdentifier>{303e135d-3547-476b-a079-d87e437e4186}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SDLres">
+      <UniqueIdentifier>{45999b7f-4729-40ca-80e2-9ca23b62dbdb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="app\app.c">
@@ -37,6 +40,189 @@
     </ClInclude>
     <ClInclude Include="inc\SDLWIN.h">
       <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_assert.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_atomic.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_audio.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_blendmode.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_clipboard.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_config.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_config_android.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_config_emscripten.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_config_iphoneos.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_config_macosx.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_config_minimal.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_config_ngage.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_config_os2.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_config_windows.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_config_wingdk.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_config_winrt.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_config_xbox.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_cpuinfo.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_endian.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_error.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_events.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_filesystem.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_gamecontroller.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_gesture.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_guid.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_haptic.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_hidapi.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_hints.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2image284VC\include\SDL_image.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_joystick.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_keyboard.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_keycode.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_loadso.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_locale.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_log.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_main.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_messagebox.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_metal.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_misc.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_mouse.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_mutex.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_pixels.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_platform.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_power.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_quit.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_rect.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_render.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_rwops.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_scancode.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_sensor.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_shape.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_stdinc.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_surface.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_system.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_thread.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_timer.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_touch.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2ttf2240\include\SDL_ttf.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_version.h">
+      <Filter>SDLres</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2devel23011VC\include\SDL_video.h">
+      <Filter>SDLres</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

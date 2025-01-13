@@ -23,4 +23,54 @@ SDL_Window* InitWin(char* nameWin, int width, int height);
 */
 SDL_Renderer* InitRender(SDL_Window* win);
 
+/*
+* Создает текстуру из внешнего файла .png
+* \param SDL_Texture* - вернем указатель на текстуру
+* \param SDL_Renderer* rend - целевой рендер
+* \param char* pathImg - путь к вайлу .png
+*/
+SDL_Texture* InitTexturePng(SDL_Renderer* rend , char* pathImg );
+
+/*
+* Записывает целевую текстуру в рендер (.png файл), требует очишение памяти
+* \param SDL_Texture* - целевая текстура
+* \param SDL_Renderer* rend - целевой рендер
+* \param int positionX - значение координат по Х
+* \param int positionY - значение координат по Y
+*/
+void RenderTexturePng( SDL_Texture* texture , SDL_Renderer* rend , int positionX , int positionY );
+
+/*
+* Создает текстуру из текстового значения
+* \param SDL_Texture* - вернем указатель на текстуру
+* \param SDL_Renderer* rend - целевой рендер
+* \param char* str - текстовое содержание
+* \param TTF_Font* font - структура настройка шрифта текста
+* \param SDL_Color color - структура настройка цвета текста
+*/
+SDL_Texture* InitText( SDL_Renderer* rend , char* str , TTF_Font* font , SDL_Color color );
+
+/*
+* Записывает целевую текстуру в рендер, требует очишение памяти
+* \param SDL_Texture* - целевая текстура
+* \param SDL_Renderer* rend - целевой рендер
+* \param int positionX - значение координат по Х
+* \param int positionY - значение координат по Y
+*/
+void RenderTextureText( SDL_Texture* texture , SDL_Renderer* rend , int positionX , int positionY );
+
+/*
+* Создает текстуру из текстового значения, записывает результат в рендер
+* \param SDL_Texture* - целевая текстура
+* \param SDL_Renderer* rend - целевой рендер
+* \param char* str - текстовое содержание
+* \param TTF_Font* font - структура настройка шрифта текста
+* \param SDL_Color color - структура настройка цвета текста
+* \param int positionX - значение координат по Х
+* \param int positionY - значение координат по Y
+*/
+void UpDateRenderTextureText( SDL_Texture* texture, SDL_Renderer* rend , char* str , TTF_Font* font , SDL_Color color , int positionX , int positionY );
+
+
+
 #endif

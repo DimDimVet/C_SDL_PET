@@ -1,0 +1,7 @@
+﻿  app.c
+  tst.c
+  SDLWIN.c
+  Создание кода...
+F:\C_SDL_PET\app\tst.c(45,18): warning C4101: surfaceTxt: неиспользованная локальная переменная
+F:\C_SDL_PET\sdl\SDLWIN.c(24): warning C4715: InitWin: значение возвращается не при всех путях выполнения
+  C_SDL_PET.vcxproj -> F:\C_SDL_PET\x64\Debug\C_SDL_PET.exe
