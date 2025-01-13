@@ -41,6 +41,22 @@ SDL_Texture* InitTexturePng(SDL_Renderer* rend , char* pathImg );
 void RenderTexturePng( SDL_Texture* texture , SDL_Renderer* rend , int positionX , int positionY );
 
 /*
+* «аписывает целевую текстуру в рендер (.png файл), требует очишение пам€ти
+* \param SDL_Rect - вернем структуру позиции и размеров полученое из целевой текстуры
+* \param SDL_Texture* - целева€ текстура
+*/
+SDL_Rect InitDest( SDL_Texture* texture );
+
+/*
+* «аписывает динамически целевую текстуру в рендер (.png файл), требует очишение пам€ти
+* \param SDL_Texture* - целева€ текстура
+* \param SDL_Renderer* rend - целевой рендер
+* \param SDL_Rect* dest - структура позиции и размеров объекта
+* \param double angle - угол поворота объекта
+*/
+void UpDateRenderTexturePng( SDL_Texture* texture , SDL_Renderer* rend , SDL_Rect* dest , double angle );
+
+/*
 * —оздает текстуру из текстового значени€
 * \param SDL_Texture* - вернем указатель на текстуру
 * \param SDL_Renderer* rend - целевой рендер
@@ -71,6 +87,10 @@ void RenderTextureText( SDL_Texture* texture , SDL_Renderer* rend , int position
 */
 void UpDateRenderTextureText( SDL_Texture* texture, SDL_Renderer* rend , char* str , TTF_Font* font , SDL_Color color , int positionX , int positionY );
 
+int BoundaryX( SDL_Rect dest , int width );
 
+int BoundaryY( SDL_Rect dest , int height );
+
+void CloseSDL( TTF_Font* font , SDL_Renderer* rend , SDL_Window* win );
 
 #endif

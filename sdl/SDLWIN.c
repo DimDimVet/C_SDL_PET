@@ -61,11 +61,17 @@ void RenderTexturePng(SDL_Texture* texture, SDL_Renderer* rend, int positionX, i
 	SDL_RenderCopy(rend, texture, NULL, &dest);
 }
 
-void UpDateRenderTexturePng(SDL_Texture* texture, SDL_Renderer* rend, SDL_Rect dest)
+SDL_Rect InitDest(SDL_Texture* texture)
 {
+	SDL_Rect dest;
 	SDL_QueryTexture(texture, NULL, NULL, &dest.w, &dest.h);
+	return dest;
+}
 
-	SDL_RenderCopy(rend, texture, NULL, &dest);
+void UpDateRenderTexturePng(SDL_Texture* texture, SDL_Renderer* rend, SDL_Rect* dest, double angle)
+{
+	SDL_QueryTexture(texture, NULL, NULL, &dest->w, &dest->h);
+	SDL_RenderCopyEx(rend, texture, NULL, dest, angle, NULL, SDL_FLIP_NONE);
 }
 
 SDL_Texture* InitText(SDL_Renderer* rend, char* str, TTF_Font* font, SDL_Color color)
@@ -120,4 +126,54 @@ void UpDateRenderTextureText(SDL_Texture* texture, SDL_Renderer* rend, char* str
 
 	SDL_FreeSurface(surface);//очистим память
 	SDL_DestroyTexture(texture);
+}
+
+int BoundaryX(SDL_Rect dest, int width)
+{
+	// правая граница
+	if (dest.x + dest.w > width)
+	{
+		dest.x = width - dest.w;
+	}
+
+	// левая граница
+	if (dest.x < 0)
+	{
+		dest.x = 0;
+	}
+		
+	return dest.x;
+}
+
+int BoundaryY(SDL_Rect dest, int height)
+{
+	// нижния граница
+	if (dest.y + dest.h > height)
+	{
+		dest.y = height - dest.h;
+	}
+
+	// верхнея граница
+	if (dest.y < 0)
+	{
+		dest.y = 0;
+	}
+
+	return dest.y;
+}
+
+void CloseSDL(TTF_Font* font, SDL_Renderer* rend, SDL_Window* win)
+{
+	// destroy renderer
+
+	TTF_CloseFont(font);
+	SDL_DestroyRenderer(rend);
+
+	// destroy window
+	SDL_DestroyWindow(win);
+
+	// close SDL
+	TTF_Quit();
+	SDL_Quit();
+	IMG_Quit();
 }
